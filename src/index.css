@@ -1,0 +1,820 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Balsamiq+Sans:wght@400;700&family=Lato:wght@100;300;400;700;900&family=Lobster+Two:wght@400;700&family=Poppins:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,300&display=swap');
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'poppins', sans-serif;
+}
+
+body{
+  scroll-behavior: smooth;
+}
+:root{
+  --eph-text-color: #c00d0d;
+  --matching_text: #df9d9d;
+  --text_color: #000000;
+}
+.navigation_wrapper{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 10;
+  transition: .3s ease-in-out;
+}
+.navigation_wrapper.active{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  background-color: rgba(250, 250, 250, 0.801);
+  backdrop-filter: blur(5px);
+}
+.navigation_wrapper.active .nav_li a{
+  color: #000000;
+}
+.navigation_wrapper.active .nav_li::before{
+  top: 6.4rem;
+}
+.navigation_wrapper.active .nav{
+  height: 5rem;
+}
+.nav{
+  width:  90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  height: 6rem;
+  scroll-behavior: smooth;
+}
+.logo{
+  width: 7rem;
+}
+
+.nav_ul{
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+.nav_li{
+  padding: 3.5rem 0;
+  cursor: pointer;
+  position: relative;
+  width: 9.5rem;
+  text-align: center;
+  color: #fff;
+  font-weight: bolder;    
+}
+.nav_li::before{
+  content: "";
+  position: absolute;
+  width: 9.5rem;
+  background-color: var(--eph-text-color);
+  height: 3rem;
+  transition: .5s ease-in-out;
+  top: 6.9rem;
+  left: 0;
+  opacity: 0;
+}
+.nav_li:hover.nav_li::before{
+  opacity: 1;
+}
+.nav_li:hover{
+  color: var(--matching_text);
+}
+.nav_li a{
+  color: #fff;
+  text-decoration: none;
+}
+.hamburger{
+  width: 2.3rem;
+  height: 1.5rem;
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+  overflow: hidden;
+  transition: .3s ease;
+  display: none;
+}
+
+.bar{
+  width: 2rem;
+  height: 2px;
+  background-color: #fff;
+  position: relative;
+  transition: .3s ease;
+  right: 0;
+  box-shadow: 0 -2px 5px rgba(185, 185, 185, 0.2);
+  
+}
+
+.bar::before, .bar::after{
+  content: "";
+  position: absolute;
+  background-color: #fff;
+  width: inherit;
+  height: inherit;
+  transition: .6s ease;
+}
+.bar::before{
+  transform: translateY(10px);
+}
+.bar::after{
+  transform: translateY(-10px);
+}
+.hamburger.active .bar{
+  background-color: transparent;
+}
+.hamburger.active .bar::before{
+  transform: rotate(135deg);
+}
+.hamburger.active .bar::after{
+  transform: rotate(45deg);
+}
+
+
+
+
+
+
+/*******HOME***********/
+
+
+.front_display{
+    width: 100%;
+    height: 80vh;
+    position: relative;
+    overflow: hidden; 
+}
+.shade{
+    width: 100%;
+    position: absolute;
+    background-color: rgba(0,0,0,.7);
+    height: inherit;
+    z-index: 1;
+}
+
+.img_change{
+    width: 100%;
+    height: inherit;
+}
+.front_display img[src]{
+    opacity:1;
+    transition:opacity 0.5s linear;
+}
+
+.img_carousel{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: inherit;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 2;
+}
+.front_text,.bible,.bible_ref{
+    color: #fff ;
+    text-align: center;
+}
+.front_text{
+    font-size: 5rem;
+    z-index: 1;
+}
+
+
+.bible{
+    margin: 4rem 0 3rem;
+    font-size: 1.7rem;
+    width: 70%;
+    text-align: center;
+    font-style: italic;
+}
+.bible_ref{
+    font-size: 1.3rem;
+    color: #fff;
+}
+.arrow{
+    z-index: 5;
+    color: #ffffff;
+    position: absolute;
+    top: 50%;
+    font-size: 3rem;
+    background-color: rgba(0,0,0,.5);
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.466);
+    cursor: pointer;  
+    transition: .3s ease;
+}
+.arrow:hover{
+    transform: scale(1.05);
+}
+.prev{
+    left: 2rem;
+}
+.next{
+    right: 2rem;
+}
+.motto{
+    text-align: center;
+    margin: 1rem 0;
+    font-size: 2.5rem;
+    font-family: 'Amatic SC', cursive;
+}
+.word{
+    font-size: 3.5rem;
+    color: var(--eph-text-color);
+    animation: word 2s infinite alternate linear;
+}
+@keyframes word {
+    0%{
+        opacity: .1;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.join_us{
+    width: 100%;
+    padding: 1rem 0;
+    text-align: center;
+    background-color: var(--eph-text-color);
+    font-size: 3rem;
+    font-weight: bolder;
+    text-shadow: 3px 5px 3px black;
+    color: #ffffff;
+    text-transform: capitalize;
+}
+
+.program_main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+    margin-top: 3rem;
+    border: none;
+    outline: none;
+}
+.program_section{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.service{
+    width: 80%;
+    display: flex;
+    margin: 1rem 0;
+    gap: 5rem;
+    border: 2px solid transparent;
+    transition: .5s ease-in-out;
+}
+.service:hover{
+    border-radius: 10px;
+    transform: scale(1.02);
+}
+.service img{
+    width: 30%;
+    border-radius: 10px;
+}
+.program{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: inherit;
+}
+.program h3{
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+.program p{
+    font-size: 1.2rem;
+}
+
+.youtube{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 0;
+    background-color: #2c0e63;
+    border-bottom: 2px solid rgb(155, 155, 155);
+}
+.youtube_video{
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10%;
+}
+.youtube_video h2{
+    font-size: 3rem;
+    width: 50%;
+    color: #fff;
+    filter: drop-shadow(5px 2px 1px rgb(94, 94, 94));
+}
+.youtube_video iframe{
+    width: 60%;
+}
+
+.contact_section{
+    display: flex;
+    width: 100%;
+    padding: 5rem 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    background: #2c0e63;
+}
+.main_contact_block{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    width: 70%;
+    padding-bottom: 5rem;
+}
+.address_location{
+    width: 40%;
+}
+.contact_form{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.address h3{
+    color: #c00d0d;
+    margin: 0;
+    font-size: 1.5rem;
+    filter: drop-shadow(1px 1px 1px white);
+}
+::placeholder{
+    text-align: center;
+    color: #ffffff;
+    opacity: .7;
+}
+.form_input{
+    display: block;
+    font-size: 18px;
+    padding: .5rem 5rem;
+    width: 90%;
+    margin: 1rem;
+    outline: none;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #c00d0d;
+    color: #ffffff;
+    text-align: center;
+}
+.text_area{
+    height: 100px;
+}
+.form_submit{
+    padding: .5rem 2rem;
+    position: relative;
+    width: 15rem;
+    height: 3rem;
+    background-color: #c00d0d;
+    border-radius: 10px;
+    border: none;
+    font-size: 18px;
+    color: #ffffff;
+    overflow: hidden;
+}
+.form_submit::before{
+    content: "Submit Message!";
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    transform: translateY(30%);
+}
+.form_submit::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: inherit;
+    background-color: #f07373b2;
+    transition: 1s ease-in;
+}
+
+.form_submit:hover.form_submit::after, .form_submit:focus .form_submit::after{
+    width: 100%;
+}
+
+
+
+/*********aBOUT**********/
+
+
+.about_main{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.about_intro_1{
+    width: 100%;
+    display: grid;
+    place-content: center;
+    background-image: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)),url(../public/images/image7.jpg);
+    height: 80vh;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.about_intro_1 h1{
+    font-size: 5rem;
+    color: #fff;
+}
+.about_intro_2{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 70%;
+    place-items: center;
+    padding: 1rem 0;
+}
+.about_intro_2 h2{
+    width: 90%;
+    font-size: 3.5rem;
+    text-align: right;
+}
+.about_intro_2 img{
+    width: 90%;
+    border-radius: 10px;
+}
+.intro2_bible_ref{
+    display: flex;
+    width: 70%;
+    text-align: center;
+    justify-content: space-between;
+    gap: 5rem;
+    align-items: center;
+    font-style: italic;
+}
+.scripture_reference{
+    display: block;
+    color: #000;
+    font-size: 1rem;
+    font-weight: bolder;
+    margin: 1rem 0;
+    text-align: center;
+}
+.value{
+    width: 100%;
+}
+.value_intro{
+    width: 100%;
+    height: 50vh;
+    background-image: linear-gradient(rgba(0,0,0,.2), rgba(0,0,0,.2)), url(../public/images/image1.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.value_intro h1{
+    color: #fff;
+    font-size: 4rem;
+}
+.value_intro em{
+    color: #fff;
+    font-weight: bold;
+    width: 60%;
+    font-family: 'poppins', sans-serif;
+    text-align: center;
+}
+.core_value{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.core_value div{
+    width: 30%;
+    padding: 0 5rem;
+}
+.core_value h2{
+    color: var(--eph-text-color);
+}
+.core_value em{
+    font-weight: bold;
+}
+
+
+
+/*******FOOTER**********/
+
+
+
+
+footer{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 3rem 0 0;
+  color: #fff;
+  background-color: #c00d0d;
+}
+footer>p{
+  padding: 2rem 0;
+}
+.footer{
+  display: grid;
+  place-items: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 80%;
+  gap: 2rem;
+  text-align: center;
+}
+
+.footer_features{
+  font-weight: bold;
+}
+.footer img{
+  width: 100%;
+  max-width: 200px;
+  animation: img_rotate 5s ease infinite alternate;
+}
+@keyframes img_rotate {
+  0%{
+      transform: rotate(-15deg);
+  }
+  100%{
+      transform: rotate(15deg);
+  }
+  
+}
+.social a{
+  color: #fff;
+}
+.social>a>i{
+  font-size: 3rem;
+  margin: 0 .4rem;
+}
+
+
+
+/*******MEDIA SCREEN*********/
+
+*{
+  transition: .5s ease-in-out;
+}
+@media only screen and (max-width:960px) {
+  .logo{
+      width: 5.5rem;
+  }
+  .front_text{
+      font-size: 4rem;
+      width: 90%;
+  }
+  .bible{
+      font-size: 1.3rem;
+  }
+  .bible_ref{
+      font-size: 1rem;
+  }
+  .arrow{
+      font-size: 2rem;
+  }
+  .word{
+      font-size: 2.8rem;
+  }
+  .program_section{
+      width: 90%;
+     
+  }
+  .service{
+      width: 100%;
+      gap: 3rem;
+  }
+  .service img{
+      width: 50%;
+      border-radius: 10px;
+  }
+  .program{
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: inherit;
+  }
+  .program h3{
+      font-size: 2rem;
+      text-align: center;
+  }
+  .program p{
+      font-size: 1.2rem;
+      text-align: center;
+  }
+  .about_main{
+      width: 100%;
+  }
+  .youtube_video{
+      width: 80%;
+      gap: 10%;
+  }
+  .youtube_video h2{
+      font-size: 2.4rem;
+      width: 40%;
+      color: #fff;
+      filter: drop-shadow(5px 2px 1px rgb(94, 94, 94));
+  }
+  .youtube_video iframe{
+      width: 50%;
+  }
+
+  .about_intro_1 h1{
+      font-size: 3rem;
+      color: #fff;
+  }
+  .about_intro_2{
+      width: 100%;
+      padding: 2rem;
+      gap: 2rem;
+  }
+  .about_intro_2 h2{
+      width: 100%;
+      font-size: 2rem;
+      text-align: right;
+  }
+  
+  .main_contact_block{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 3rem;
+      flex-direction: column;
+      width: 60%;
+      overflow: hidden;
+      
+  }
+  .address_location{
+      width: 100%;
+      text-align: center;
+  }
+  .contact_form{
+      width: 100%;
+      display: flex;
+  }
+  .footer{
+      width: 95% !important ;
+  }
+  .footer img{
+      width: 100%;
+      max-width: 150px !important;        
+  }
+  .social>a>i{
+      font-size: 2.5rem !important;
+      margin: 0 .4rem;
+  }
+}
+  
+@media screen and (max-width: 700px) {
+  .logo{
+      width: 4.8rem;
+  }
+  .front_text{
+      font-size: 3rem;
+  }
+  .bible{
+      font-size: 1.1rem;
+  }
+  .motto{
+      font-size: 2rem;
+  }
+  .word{
+      font-size: 2.3rem;
+  }
+  .join_us{
+      font-size: 2rem;
+  }
+  .program h3{
+      font-size: 1.8rem;
+      text-align: center;
+  }
+  .program p{
+      font-size: 1.1rem;
+      text-align: center;
+  }
+  .youtube_video{
+      width: 80%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10%;
+  }
+  .youtube_video h2{
+      font-size: 1.7rem;
+      width: 40%;
+      color: #fff;
+      filter: drop-shadow(5px 2px 1px rgb(94, 94, 94));
+  }
+  .youtube_video iframe{
+      width: 50%;
+  }
+  .footer{
+      width: 80% ;
+      grid-template-columns: 1fr !important;
+  }   
+      
+}
+@media screen and (max-width: 550px) {
+  .logo{
+      width: 4rem;
+  }
+  .front_display{
+      height: 60vh;
+  }
+  .front_text{
+      font-size: 2rem;
+      width: 90%;
+  }
+  .bible{
+      font-size: 1rem;
+      width: 70%;
+  }
+  .bible_ref{
+      font-size: 1rem;
+  }
+  .arrow{
+      font-size: 1.5rem;
+      padding: .2rem;
+  }
+  .prev{
+      left: .5rem;
+  }
+  .next{
+      right: .5rem;
+  }
+  .service{
+      flex-direction: column;
+      width: 100%;
+      gap: 1rem;
+      align-items: center;
+  }
+  .service img,.program{
+      width: 90%;
+  }
+  .program h3, .program p{
+      margin: 0;
+  }
+  .youtube_video{
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 10%;
+  }
+  .youtube_video h2{
+      font-size: 1.4rem;
+      text-align: center;
+      width: 80%;
+      color: #fff;
+      filter: drop-shadow(5px 2px 1px rgb(94, 94, 94));
+  }
+  .youtube_video iframe{
+      width: 80%;
+  }
+  .main_contact_block{
+      width: 80%;
+      max-width: 80%;
+  }
+  
+  .address_location,.contact_form{
+      width: 100%;
+      max-width: 350px;
+  }        
+}
+
+
+
