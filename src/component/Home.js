@@ -35,7 +35,7 @@ export const Home = ({count , setCount, prevImg, nextImg, data}) => {
       </main>
       <main className='youtube'>
       <div className='youtube_video'>
-        <h2>Fear not, because God said that your future shall be okay.</h2>
+        <h2>Fear not, your future is secured in Christ.</h2>
         <iframe width="560" height="315" src="https://www.youtube.com/embed/7lNPJJpxkg4?start=15" title="YouTube video player" frameBorder="2" allow="accelerometer; clipboard-write; encrypted-media; gyroscope" allowFullScreen></iframe>
         </div>
       </main>

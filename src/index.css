@@ -10,6 +10,10 @@
 body{
   scroll-behavior: smooth;
 }
+.App.active{
+  overflow: hidden;
+  
+}
 :root{
   --eph-text-color: #c00d0d;
   --matching_text: #df9d9d;
@@ -37,6 +41,9 @@ body{
 }
 .navigation_wrapper.active .nav_li a{
   color: #000000;
+}
+.navigation_wrapper.active .bar,.navigation_wrapper.active .bar::after,.navigation_wrapper.active .bar::before{
+  background-color: #000;
 }
 .navigation_wrapper.active .nav_li::before{
   top: 6.4rem;
@@ -93,10 +100,10 @@ body{
   text-decoration: none;
 }
 .hamburger{
-  width: 2.3rem;
-  height: 1.5rem;
-  display: grid;
-  place-content: center;
+  padding: 1.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   overflow: hidden;
   transition: .3s ease;
@@ -109,7 +116,7 @@ body{
   background-color: #fff;
   position: relative;
   transition: .3s ease;
-  right: 0;
+  left: 0;
   box-shadow: 0 -2px 5px rgba(185, 185, 185, 0.2);
   
 }
@@ -446,6 +453,7 @@ body{
 .about_intro_1 h1{
     font-size: 5rem;
     color: #fff;
+    text-align: center;
 }
 .about_intro_2{
     display: grid;
@@ -456,7 +464,7 @@ body{
 }
 .about_intro_2 h2{
     width: 90%;
-    font-size: 3.5rem;
+    font-size: 3rem;
     text-align: right;
 }
 .about_intro_2 img{
@@ -497,7 +505,7 @@ body{
 }
 .value_intro h1{
     color: #fff;
-    font-size: 4rem;
+    font-size: 3rem;
 }
 .value_intro em{
     color: #fff;
@@ -579,6 +587,9 @@ footer>p{
 .social>a>i{
   font-size: 3rem;
   margin: 0 .4rem;
+}
+footer p{
+  text-align: center;
 }
 
 
@@ -667,6 +678,19 @@ footer>p{
       text-align: right;
   }
   
+  .core_value{
+    justify-content: center;
+    width: 100%;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.core_value div{
+    width: 100%;
+    padding: 0 5rem;
+}
+
   .main_contact_block{
       display: flex;
       justify-content: center;
@@ -701,6 +725,41 @@ footer>p{
 @media screen and (max-width: 700px) {
   .logo{
       width: 4.8rem;
+  }
+  .hamburger{
+    display: block;
+    z-index: 2;
+  }
+  .nav_ul{
+    position: absolute;
+    top: 5rem;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    padding: 6rem 0;
+    flex-direction: column;
+    left: -100%;
+    z-index: -1;
+    background-color: #fff;
+  
+  }
+  .nav_ul.active{
+    left: 0;
+  }
+  
+  .nav_li{
+    margin: 0;
+    padding: 1.2rem 0;
+  }
+  .nav_li::before{
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    
+  }
+  .nav_li a{
+    color: #000;
   }
   .front_text{
       font-size: 3rem;
@@ -751,6 +810,10 @@ footer>p{
   .logo{
       width: 4rem;
   }
+
+
+
+
   .front_display{
       height: 60vh;
   }
@@ -804,6 +867,39 @@ footer>p{
   }
   .youtube_video iframe{
       width: 80%;
+  }
+  .value_intro h1{
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  .value_intro em{
+    color: #fff;
+    font-weight: bold;
+    width: 90%;
+  }
+  .about_intro_2{
+    grid-template-columns: 1fr;
+    width: 90%;
+  }
+  .about_intro_2 h2{
+      width: 100%;
+      font-size: 1.7rem;
+      text-align: center;
+  }
+  .about_intro_2 img{
+      width: 100%;
+  }
+  .intro2_bible_ref{
+      width: 90%;
+      flex-direction: column;
+      justify-content: center;
+      gap: .2rem;
+  }
+
+
+  .core_value div{
+    width: 100%;
+    padding: 0 2rem;
   }
   .main_contact_block{
       width: 80%;

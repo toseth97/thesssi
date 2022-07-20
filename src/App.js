@@ -10,6 +10,8 @@ import {Routes, Route} from 'react-router-dom'
 
 
 function App() {
+  const[mobile, setMobile] = useState(false)
+
   const [count, setCount] = useState(0)
     
     //Goto next slide
@@ -19,6 +21,10 @@ function App() {
     //Goto previous slide
     const prevImg = () =>{
         setCount(count => count !== 0? count -1 : 2 )
+    }
+
+    const active = ()=>{
+      setMobile(mobile => !mobile)
     }
 
     // Make slide change at interval (Carousel)
@@ -33,8 +39,8 @@ function App() {
     
     const data=ImgData
   return (
-    <div className='App'>  
-    <Nav />
+    <div className= {mobile ? "App active": "App"}>  
+    <Nav mobile = {mobile} setMobile ={setMobile} active = {active} />
     <Routes>
       <Route path='/' element = {<Home count = {count} setCount = {setCount} nextImg = {nextImg} prevImg = {prevImg} data = {data}/>} />
       <Route path='about' element = {<About />} />
