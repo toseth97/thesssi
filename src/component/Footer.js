@@ -5,7 +5,7 @@ const Footer = () => {
     let myDate = new Date()
   return (
     <footer>
-        <main className='footer'>
+        <main data-aos = "fade-in" className='footer'>
             <img src='./images/logo.png' />
             <div className='footer_features'>
                 <h2>Thesssi @ MBJ Ministry</h2>

@@ -5,7 +5,7 @@ const Contact = ({form, setForm}) => {
     <main className='contact_section'>
       <div className='curve'></div>
       <section className='main_contact_block'>
-        <div className='address_location'>
+        <div data-aos = "flip-left" className='address_location'>
           <div className='address'>
             <h3>Address:</h3>
             <p>Oke Odan, Ayegun Area, Apete, Ibadan</p>
@@ -19,7 +19,7 @@ const Contact = ({form, setForm}) => {
             <p>thesssimbjoshuaministries@gmail.com</p>
           </div>
         </div>
-        <form className='contact_form'>
+        <form data-aos = "flip-right" className='contact_form'>
           <h2>Send Us a Message!</h2>
           <input type= 'text'
                 className='form_input'

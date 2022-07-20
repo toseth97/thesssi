@@ -17,14 +17,14 @@ export const Home = ({count , setCount, prevImg, nextImg, data}) => {
       <div className='join_us'>Feel free to join us</div>
       <main className='program_main'>
         <section className='program_section'>
-          <div className='service'>
+          <div data-aos="fade-right" className='service'>
             <img src='./images/image4.jpg' alt='prog' />
             <div className='program'>
               <h3>Sunday Worship Service</h3>
               <p>Holds by 9am on every first Sunday of the the month and 12pm every other Sundays.</p>
             </div>
           </div>
-          <div className='service'>
+          <div data-aos = "fade-left" className='service'>
             <img src='./images/image3.jpg' alt='prog' />
             <div className='program'>
               <h3>Spirit Diet</h3>
@@ -34,7 +34,7 @@ export const Home = ({count , setCount, prevImg, nextImg, data}) => {
         </section>
       </main>
       <main className='youtube'>
-      <div className='youtube_video'>
+      <div data-aos = "zoom-in-up" className='youtube_video'>
         <h2>Fear not, your future is secured in Christ.</h2>
         <iframe width="560" height="315" src="https://www.youtube.com/embed/7lNPJJpxkg4?start=15" title="YouTube video player" frameBorder="2" allow="accelerometer; clipboard-write; encrypted-media; gyroscope" allowFullScreen></iframe>
         </div>
